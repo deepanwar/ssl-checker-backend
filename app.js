@@ -9,17 +9,19 @@ const app = express();
 
 const PORT = process.env.NODE_PORT;
 
-const allowedOrigins =
-  process.env.CORS_ORIGINS?.split(",").map((item) => item?.trim()) || [];
+// const allowedOrigins =
+//   process.env.CORS_ORIGINS?.split(",").map((item) => item?.trim()) || [];
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  // origin: function (origin, callback) {
+
+  //   if (!origin || allowedOrigins.includes(origin)) {
+  //     callback(null, true);
+  //   } else {
+  //     callback(new Error("Not allowed by CORS"));
+  //   }
+  // },
+  origin: true,
   credentials: true,
 };
 
