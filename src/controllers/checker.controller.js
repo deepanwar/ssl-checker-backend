@@ -10,7 +10,11 @@ import {
 } from "../helpers/checker.helper.js";
 
 export const checkSSLCertificate = async (req, res) => {
-  const { domain } = req.params;
+  const { domain } = req.body;
+
+  if (!domain) {
+    return res.status(400).json({ error: "Domain is required" });
+  }
 
   try {
     const cert = await fetchCertificate(domain);
